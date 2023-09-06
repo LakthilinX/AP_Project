@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import entity.Booking;
 import entity.Consultant;
 import entity.Customer;
 import service.indexService;
+import validator.Validate;
 
 /**
  * Servlet implementation class IndexServlet
@@ -67,14 +67,41 @@ public class IndexServlet extends HttpServlet {
         String jtype = request.getParameter("jtype");
 
         Customer newCustomer = new Customer(fname, lname, mNumber, email);
-        indexService.createCustomer(newCustomer);
         
-        int cusid = indexService.getLastId();
+        Validate<Customer> validator1 = new Validate();
+        List<String> errorsCustomer = validator1.validate(newCustomer);
         
-        Booking booking = new Booking(cusid, date, jtype);
-        indexService.createBooking(booking);
+        if(!errorsCustomer.isEmpty()) {
+        	request.setAttribute("errors", errorsCustomer);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+        else {
+        	indexService.createCustomer(newCustomer);
+        	
+        	int cusid = indexService.getLastId();
+            
+            Booking booking = new Booking(cusid, date, jtype);
+            
+            Validate<Booking> validator = new Validate();
+            List<String> errorsBooking = validator.validate(booking);
+            
+            if(!errorsBooking.isEmpty()) {
+            	request.setAttribute("errors", errorsBooking);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+            else {
+            	indexService.createBooking(booking);
+                
+                response.sendRedirect("index.jsp");
+            }
+            
+            
+        	
+        }
         
-        response.sendRedirect("index.jsp");
+        
+        
+        
     }
 
 	private void loadJob(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

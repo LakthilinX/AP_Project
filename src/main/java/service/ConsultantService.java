@@ -71,4 +71,9 @@ public class ConsultantService {
             e.printStackTrace();
         }
     }
+
+	public void setConsultantDAO(ConsultantDAO consultantDAO2) {
+		consultantDAO = consultantDAO2;
+		
+	}
 }

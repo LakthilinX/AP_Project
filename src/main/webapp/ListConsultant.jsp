@@ -249,7 +249,7 @@
             <main class="mt-5 pt-3">
                 <div class="container-fluid">
                     <div class="row">
-                        <h2>Customer List</h2>
+                        <h2>Consultant List</h2>
                     </div>
                     <div class="row mt-5 justify-content-center">
                         <div class="col-md-10">
@@ -260,22 +260,22 @@
                                 <td>Last Name</td>
                                 <td>Mobile Number</td>
                                 <td>Email</td>
+                                <td>Country</td>
                                 <td>Action</td>
                                 </tr>
-                                
-                                 <c:forEach var="customer" items="${customers}">
+                                 <c:forEach var="consultant" items="${consultants}">
                                 <tr>
-                                    <td></td>
-                                    <td><c:out value="${customer.getCustomerId()}" /></td>
-                                    <td><c:out value="${customer.getFname()}" /></td>
-                                    <td><c:out value="${customer.getLname()}" /></td>
-                                    <td><c:out value="${customer.getMNumber()}" /></td>
-                                    <td><c:out value="${customer.getEmail()}" /></td>
+                                    <td><c:out value="${consultant.getConsultantId()}" /></td>
+                                    <td><c:out value="${consultant.getFname()}" /></td>
+                                    <td><c:out value="${consultant.getLname()}" /></td>
+                                    <td><c:out value="${consultant.getMNumber()}" /></td>
+                                    <td><c:out value="${consultant.getEmail()}" /></td>
+                                    <td><c:out value="${consultant.getCountry()}" /></td>
                                     <td>
                                     	<a class="btn btn-primary"
-                                                href="UsersServlet?action=updateFrm&id=<c:out value='${customer.getCustomerId()}' />">Edit</a>
+                                                href="UsersServlet?action=updateFrm&id=<c:out value='${consultant.getConsultantId()}' />">Edit</a>
                                         <a class="btn btn-danger"
-                                                href="DeleteUserServlet?id=<c:out value='${customer.getCustomerId()}' />">Delete</a>
+                                                href="DeleteUserServlet?id=<c:out value='${consultant.getConsultantId()}' />">Delete</a>
                                     </td>
                                 </tr>
                                  </c:forEach>

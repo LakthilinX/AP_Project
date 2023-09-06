@@ -8,11 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import entity.Admin;
 import entity.Booking;
 import entity.Consultant;
 import entity.Customer;
 import service.BookingService;
-import service.CustomerService;
+import validator.Validate;
 
 @WebServlet("/BookingServlet")
 public class BookingServlet extends HttpServlet {
@@ -114,9 +116,19 @@ public class BookingServlet extends HttpServlet {
         Date date = Date.valueOf(dateStr); 
         String jtype = request.getParameter("job");
         Booking newBooking = new Booking(customerId, date, jtype, Consultantid);
-        bookingService.createBooking(newBooking);
+        
+        Validate<Booking> validator = new Validate();
+        List<String> errors = validator.validate(newBooking);
+        
+        if(!errors.isEmpty()) {
+        	request.setAttribute("errors", errors);
+            request.getRequestDispatcher("NewBooking.jsp").forward(request, response);
+        }
+        else {
+        	bookingService.createBooking(newBooking);
+            response.sendRedirect("BookingServlet?action=list");
+        }
 
-        response.sendRedirect("BookingServlet?action=list");
     }
 
     private void updateBooking(HttpServletRequest request, HttpServletResponse response)
@@ -127,9 +139,20 @@ public class BookingServlet extends HttpServlet {
         Date date = Date.valueOf(dateStr); 
         String jtype = request.getParameter("jtype");
         Booking updatedBooking = new Booking(bookingId, customerId, date, jtype);
-        bookingService.updateBooking(updatedBooking);
-
-        response.sendRedirect("BookingServlet?action=list");
+        
+        Validate<Booking> validator = new Validate();
+        List<String> errors = validator.validate(updatedBooking);
+        
+        if(!errors.isEmpty()) {
+        	request.setAttribute("errors", errors);
+            request.getRequestDispatcher("NewBooking.jsp").forward(request, response);
+        }
+        else {
+        	 bookingService.updateBooking(updatedBooking);
+             response.sendRedirect("BookingServlet?action=list");
+        }
+        
+       
     }
 
     private void deleteBooking(HttpServletRequest request, HttpServletResponse response)

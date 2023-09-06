@@ -169,7 +169,7 @@
                                 <div class="collapse" id="layouts2">
                                     <ul class="navbar-nav ps-3">
                                         <li>
-                                            <a href="#" class="nav-link px-3">
+                                            <a href="<%=request.getContextPath()%>/ConsultantServlet?action=list" class="nav-link px-3">
                                                 <span class="me-2"><i class="bi bi-speedometer2"></i></span>
                                                 <span>View Consultant</span>
                                             </a>
@@ -179,9 +179,42 @@
                                 <div class="collapse" id="layouts2">
                                     <ul class="navbar-nav ps-3">
                                         <li>
-                                            <a href="#" class="nav-link px-3">
+                                            <a href="<%=request.getContextPath()%>/ConsultantServlet?action=CtrateView" class="nav-link px-3">
                                                 <span class="me-2"><i class="bi bi-speedometer2"></i></span>
                                                 <span>Create Consultant</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </li>
+                            <li>
+                                <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts3">
+                                    <span class="me-2"><i class="bi bi-layout-split"></i></span>
+                                    <span>Users</span>
+                                    <span class="ms-auto">
+                                        <span class="right-icon">
+                                            <i class="bi bi-chevron-down"></i>
+                                        </span>
+                                    </span>
+                                </a>
+                                <div class="collapse" id="layouts3">
+                                    <ul class="navbar-nav ps-3">
+                                        <li>
+                                            <a href="<%=request.getContextPath()%>/AdminServlet?action=list" class="nav-link px-3">
+                                                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                                                <span>View User</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="collapse" id="layouts3">
+                                    <ul class="navbar-nav ps-3">
+                                        <li>
+                                            <a href="<%=request.getContextPath()%>/AdminServlet?action=createView" class="nav-link px-3">
+                                                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                                                <span>Create User</span>
                                             </a>
                                         </li>
                                     </ul>

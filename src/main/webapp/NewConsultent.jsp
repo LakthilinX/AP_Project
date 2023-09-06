@@ -251,7 +251,7 @@
                     <div class="row">
                         <h2>Add New Consultant</h2>
                     </div>
-                    <form action="" method="post">
+                    <form action="<%=request.getContextPath()%>/ConsultantServlet?action=Ctrate" method="post">
                         <div class="row mt-5">
                             <div class="col-md-6">
                                 <label for="inputMnumber" class="form-label">First Name</label>
@@ -278,6 +278,15 @@
                                 <input type="text" class="form-control" name="country">
                             </div>
                         </div>
+                        <div class="row mt-5">
+                        <div class="col-6">
+	                		<ul class="error text text-danger">
+		                <c:forEach var="error" items="${errors1}">
+		                	<li>${error}</li>
+		                </c:forEach>
+	                	</ul>
+	                	</div>
+                </div>
                         <div class="row mt-5">
                             <div class="col">
                                 <input type="submit" value="Submit" class="btn btn-success">

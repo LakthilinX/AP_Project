@@ -90,4 +90,18 @@ public class BookingService {
             e.printStackTrace();
         }
     }
+
+	public void setConsultantDAO(ConsultantDAO consultantDAO2) {
+		consultantDAO = consultantDAO2;
+	}
+
+	public void setBookingDAO(BookingDAO bookingDAO2) {
+		bookingDAO = bookingDAO2;
+		
+	}
+
+	public void setCustomerDAO(CustomerDAO customerDAO2) {
+		customerDAO =customerDAO2;
+		
+	}
 }
