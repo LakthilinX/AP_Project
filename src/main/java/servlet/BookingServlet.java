@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import entity.Booking;
+import entity.Consultant;
+import entity.Customer;
 import service.BookingService;
+import service.CustomerService;
 
 @WebServlet("/BookingServlet")
 public class BookingServlet extends HttpServlet {
@@ -30,6 +33,9 @@ public class BookingServlet extends HttpServlet {
         }
 
         switch (action) {
+        	case "new":
+            NewBookings(request, response);
+            break;
             case "list":
                 listBookings(request, response);
                 break;
@@ -44,6 +50,9 @@ public class BookingServlet extends HttpServlet {
                 break;
             case "create":
                 createBooking(request, response);
+                break;
+            case "createVeiw":
+            	createVeiw(request, response);
                 break;
             case "update":
                 updateBooking(request, response);
@@ -60,9 +69,25 @@ public class BookingServlet extends HttpServlet {
 
     private void listBookings(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Booking> bookings = bookingService.getAllBookings();
+        List<Booking> bookings = bookingService.getAllBookingsWithname();
         request.setAttribute("bookings", bookings);
-        request.getRequestDispatcher("list-bookings.jsp").forward(request, response);
+        request.getRequestDispatcher("Listbooking.jsp").forward(request, response);
+    }
+    
+    private void NewBookings(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<Customer> Customers = bookingService.getAllCustomer();
+        List<Consultant> Consultants = bookingService.getAllConsultant();
+        request.setAttribute("Customers", Customers);
+        request.setAttribute("Consultants", Consultants);
+        request.getRequestDispatcher("NewBooking.jsp").forward(request, response);
+    }
+    
+    private void createVeiw(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<Booking> bookings = bookingService.getAllBookingsWithname();
+        request.setAttribute("bookings", bookings);
+        request.getRequestDispatcher("Listbooking.jsp").forward(request, response);
     }
 
     private void viewBooking(HttpServletRequest request, HttpServletResponse response)
@@ -83,12 +108,12 @@ public class BookingServlet extends HttpServlet {
 
     private void createBooking(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int customerId = Integer.parseInt(request.getParameter("customerId"));
+        int customerId = Integer.parseInt(request.getParameter("Customer"));
+        int Consultantid = Integer.parseInt(request.getParameter("Consultant"));
         String dateStr = request.getParameter("date");
         Date date = Date.valueOf(dateStr); 
-        String jtype = request.getParameter("jtype");
-
-        Booking newBooking = new Booking(customerId, date, jtype);
+        String jtype = request.getParameter("job");
+        Booking newBooking = new Booking(customerId, date, jtype, Consultantid);
         bookingService.createBooking(newBooking);
 
         response.sendRedirect("BookingServlet?action=list");
@@ -101,7 +126,6 @@ public class BookingServlet extends HttpServlet {
         String dateStr = request.getParameter("date");
         Date date = Date.valueOf(dateStr); 
         String jtype = request.getParameter("jtype");
-
         Booking updatedBooking = new Booking(bookingId, customerId, date, jtype);
         bookingService.updateBooking(updatedBooking);
 

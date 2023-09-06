@@ -252,21 +252,32 @@
                         <h2>Appoinments List</h2>
                     </div>
                     <div class="row mt-5 justify-content-center">
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <table class="table table-dark">
                                 <th>
                                 <td>Booking ID</td>
                                 <td>Customer Name</td>
+                                <td>Consultant Name</td>
                                 <td>Date</td>
                                 <td>Job</td>
+                                <td>Action</td>
                                 </th>
+                                <c:forEach var="booking" items="${bookings}">
                                 <tr>
                                     <td></td>
-                                    <td>1</td>
-                                    <td>Dilan</td>
-                                    <td>2023-08-30</td>
-                                    <td>Developer</td>
+                                    <td><c:out value="${booking.getBookingId()}" /></td>
+                                    <td><c:out value="${booking.getFname()} ${booking.getLname()}" /></td>
+                                    <td><c:out value="${booking.getConFname()} ${booking.getConLname()}" /></td>
+                                    <td><c:out value="${booking.getDATE()}" /></td>
+                                    <td><c:out value="${booking.getJtype()}" /></td>
+                                    <td>
+                                    	<a class="btn btn-primary"
+                                                href="UsersServlet?action=updateFrm&id=<c:out value='${booking.getBookingId()}' />">Edit</a>
+                                        <a class="btn btn-danger"
+                                                href="DeleteUserServlet?id=<c:out value='${booking.getBookingId()}' />">Delete</a>
+                                    </td>
                                 </tr>
+                                </c:forEach>
                             </table>
                         </div>
                     </div>

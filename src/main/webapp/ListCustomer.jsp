@@ -252,25 +252,33 @@
                         <h2>Customer List</h2>
                     </div>
                     <div class="row mt-5 justify-content-center">
-                        <div class="col-md-6">
+                        <div class="col-md-10">
                             <table class="table table-dark">
-                                <th>
-                                <td>Customer ID</td>
+                                <tr>
+                                <td>Consultant ID</td>
                                 <td>First Name</td>
                                 <td>Last Name</td>
                                 <td>Mobile Number</td>
                                 <td>Email</td>
                                 <td>Action</td>
-                                </th>
-                                <tr>
-                                    <td></td>
-                                    <td>1</td>
-                                    <td>Dilan</td>
-                                    <td>2023-08-30</td>
-                                    <td>Developer</td>
-                                    <td>Developer</td>
-                                    <td>Developer</td>
                                 </tr>
+                                
+                                 <c:forEach var="customer" items="${customers}">
+                                <tr>
+                                   
+                                    <td><c:out value="${customer.getCustomerId()}" /></td>
+                                    <td><c:out value="${customer.getFname()}" /></td>
+                                    <td><c:out value="${customer.getLname()}" /></td>
+                                    <td><c:out value="${customer.getMNumber()}" /></td>
+                                    <td><c:out value="${customer.getEmail()}" /></td>
+                                    <td>
+                                    	<a class="btn btn-primary"
+                                                href="UsersServlet?action=updateFrm&id=<c:out value='${customer.getCustomerId()}' />">Edit</a>
+                                        <a class="btn btn-danger"
+                                                href="DeleteUserServlet?id=<c:out value='${customer.getCustomerId()}' />">Delete</a>
+                                    </td>
+                                </tr>
+                                 </c:forEach>
                             </table>
                         </div>
                     </div>

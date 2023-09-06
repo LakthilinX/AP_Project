@@ -251,18 +251,24 @@
                     <div class="row">
                         <h2>Add New Appoinment</h2>
                     </div>
-                    <form action="" method="post">
+                    <form action="<%=request.getContextPath()%>/BookingServlet?action=create" method="post">
                         <div class="row mt-5">
                             <div class="col-md-6">
                                 <label for="inputMnumber" class="form-label">Select Consultant</label>
                                 <select class="form-select" name="Consultant" id="Consultant">
                                     <option value="0">Select Consultant</option>
+                                    <c:forEach var="Consultant" items="${Consultants}">
+                                    <option value="<c:out value="${Consultant.getConsultantId()}" />"><c:out value="${Consultant.getFname()} ${Consultant.getLname()}" /></option>
+                                    </c:forEach>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label for="inputMnumber" class="form-label">Select Customer</label>
                                 <select class="form-select" name="Customer" id="Customer">
                                     <option value="0">Select Customer</option>
+                                    <c:forEach var="Customer" items="${Customers}">
+                                    <option value="<c:out value="${Customer.getCustomerId()}" />"><c:out value="${Customer.getFname()} ${Customer.getLname()}" /></option>
+                                    </c:forEach>
                                 </select>
                             </div>
                         </div>

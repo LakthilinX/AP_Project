@@ -251,7 +251,7 @@
                     <div class="row">
                         <h2>Add New Customer</h2>
                     </div>
-                    <form action="" method="post">
+                    <form action="<%=request.getContextPath()%>/CustomerServlet?action=create" method="post">
                         <div class="row mt-5">
                             <div class="col-md-6">
                                 <label for="inputMnumber" class="form-label">First Name</label>
