@@ -92,42 +92,102 @@
                 </div>
               </li>
               <li>
-                <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts">
-                  <span class="me-2"><i class="bi bi-layout-split"></i></span>
-                  <span>Appoinments</span>
-                  <span class="ms-auto">
-                    <span class="right-icon">
-                      <i class="bi bi-chevron-down"></i>
-                    </span>
-                  </span>
-                </a>
-                <div class="collapse" id="layouts">
-                  <ul class="navbar-nav ps-3">
-                    <li>
-                      <a href="#" class="nav-link px-3">
-                        <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-                        <span>View</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="collapse" id="layouts">
-                  <ul class="navbar-nav ps-3">
-                    <li>
-                      <a href="#" class="nav-link px-3">
-                        <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-                        <span>Edit</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <a href="#" class="nav-link px-3">
-                  <span class="me-2"><i class="bi bi-book-fill"></i></span>
-                  <span>Admin</span>
-                </a>
-              </li>
+                                <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts">
+                                    <span class="me-2"><i class="bi bi-layout-split"></i></span>
+                                    <span>Appoinments</span>
+                                    <span class="ms-auto">
+                                        <span class="right-icon">
+                                            <i class="bi bi-chevron-down"></i>
+                                        </span>
+                                    </span>
+                                </a>
+                                <div class="collapse" id="layouts">
+                                    <ul class="navbar-nav ps-3">
+                                        <li>
+                                            <a href="<%=request.getContextPath()%>/BookingServlet?action=list" class="nav-link px-3">
+                                                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                                                <span>View Appoinment</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="collapse" id="layouts">
+                                    <ul class="navbar-nav ps-3">
+                                        <li>
+                                            <a href="<%=request.getContextPath()%>/BookingServlet?action=new" class="nav-link px-3">
+                                                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                                                <span>Create Appoinment</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts1">
+                                    <span class="me-2"><i class="bi bi-layout-split"></i></span>
+                                    <span>Customers</span>
+                                    <span class="ms-auto">
+                                        <span class="right-icon">
+                                            <i class="bi bi-chevron-down"></i>
+                                        </span>
+                                    </span>
+                                </a>
+                                <div class="collapse" id="layouts1">
+                                    <ul class="navbar-nav ps-3">
+                                        <li>
+                                            <a href="<%=request.getContextPath()%>/CustomerServlet?action=list" class="nav-link px-3">
+                                                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                                                <span>View Customers</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="collapse" id="layouts1">
+                                    <ul class="navbar-nav ps-3">
+                                        <li>
+                                            <a href="<%=request.getContextPath()%>/CustomerServlet?action=createView" class="nav-link px-3">
+                                                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                                                <span>Create Customer</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </li>
+
+                            <li>
+                                <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts2">
+                                    <span class="me-2"><i class="bi bi-layout-split"></i></span>
+                                    <span>Consultants</span>
+                                    <span class="ms-auto">
+                                        <span class="right-icon">
+                                            <i class="bi bi-chevron-down"></i>
+                                        </span>
+                                    </span>
+                                </a>
+                                <div class="collapse" id="layouts2">
+                                    <ul class="navbar-nav ps-3">
+                                        <li>
+                                            <a href="#" class="nav-link px-3">
+                                                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                                                <span>View Consultant</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="collapse" id="layouts2">
+                                    <ul class="navbar-nav ps-3">
+                                        <li>
+                                            <a href="#" class="nav-link px-3">
+                                                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                                                <span>Create Consultant</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </li>
               <li class="my-4">
                 <hr class="dropdown-divider bg-light" />
               </li>

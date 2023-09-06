@@ -17,11 +17,12 @@ public class BookingDAO {
     }
 
     public void createBooking(Booking booking) throws SQLException {
-        String query = "INSERT INTO booking (CustomerId, DATE, Jtype) VALUES (?, ?, ?)";
+        String query = "INSERT INTO booking (CustomerId, DATE, Jtype,ConID) VALUES (?, ?, ?,?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, booking.getCustomerId());
             statement.setDate(2, booking.getDATE());
             statement.setString(3, booking.getJtype());
+            statement.setInt(4, booking.getConsultantId());
             statement.executeUpdate();
         }
     }
@@ -46,6 +47,29 @@ public class BookingDAO {
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 bookings.add(createBookingFromResultSet(resultSet));
+            }
+        }
+        return bookings;
+    }
+    
+    public List<Booking> getAllBookingsWithName() throws SQLException {
+        List<Booking> bookings = new ArrayList<>();
+        String query = "SELECT booking.BookingId , booking.CustomerId , customer.Fname , customer.Lname , booking.Date , booking.Jtype , booking.ConID , consultant.Fname AS conFname , consultant.Lname AS conLname FROM thejobs.booking INNER JOIN thejobs.consultant ON (booking.ConID = consultant.ConsultantId) INNER JOIN thejobs.customer ON (booking.CustomerId = customer.CustomerId);";
+        try (PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+        	
+        	while (resultSet.next()) {
+            	int bookingId = resultSet.getInt("BookingId");
+            	int customerId = resultSet.getInt("CustomerId");
+            	String customerFname = resultSet.getString("Fname");
+                String customerLname = resultSet.getString("Lname");
+                Date date = resultSet.getDate("DATE");
+                String jtype = resultSet.getString("Jtype");
+                int ConsultantId = resultSet.getInt("CustomerId");
+                String ConFname = resultSet.getString("conFname");
+                String ConLname = resultSet.getString("conLname");
+                Booking booking = new Booking(bookingId, ConsultantId, customerId, date, jtype, customerFname, customerLname, ConFname, ConLname);
+                bookings.add(booking);
             }
         }
         return bookings;

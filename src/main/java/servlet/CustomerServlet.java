@@ -35,6 +35,9 @@ public class CustomerServlet extends HttpServlet {
         case "create":
             createCustomer(request, response);
             break;
+        case "createView":
+            createCustomerView(request, response);
+            break;
         
         case "view":
             viewCustomer(request, response);
@@ -50,26 +53,36 @@ public class CustomerServlet extends HttpServlet {
         }
     }
     
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    	doGet(request, response);
+    }
     
     
     private void createCustomer(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	String fname = request.getParameter("inputFname");
-        String lname = request.getParameter("inputLname");
-        int mNumber = Integer.parseInt(request.getParameter("inputMnumber"));
-        String email = request.getParameter("inputEmail");
+    	String fname = request.getParameter("Fname");
+        String lname = request.getParameter("Lname");
+        int mNumber = Integer.parseInt(request.getParameter("MNumber"));
+        String email = request.getParameter("email");
 
         Customer newCustomer = new Customer(fname, lname, mNumber, email);
         customerService.createCustomer(newCustomer);
 
         response.sendRedirect("CustomerServlet?action=list");
     }
-
+    
     private void listCustomers(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Customer> customers = customerService.getAllCustomers();
         request.setAttribute("customers", customers);
-        request.getRequestDispatcher("list-customers.jsp").forward(request, response);
+        request.getRequestDispatcher("ListCustomer.jsp").forward(request, response);
+    }
+
+    private void createCustomerView(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        request.getRequestDispatcher("NewCustomer.jsp").forward(request, response);
     }
 
     private void viewCustomer(HttpServletRequest request, HttpServletResponse response)
