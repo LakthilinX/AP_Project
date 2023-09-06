@@ -1,33 +1,31 @@
 package entity;
 
-public class Consultant {
+public class Customer {
 	
-	private int ConsultantId;
+	private int CustomerId;
 	private String Fname;
 	private String Lname;
 	private int MNumber;
 	private String Email;
-	private String Country;
-	public Consultant(int consultantId, String fname, String lname, int mNumber, String email, String country) {
-		ConsultantId = consultantId;
+	
+	public Customer(int customerId, String fname, String lname, int mNumber, String email) {
+		CustomerId = customerId;
 		Fname = fname;
 		Lname = lname;
 		MNumber = mNumber;
 		Email = email;
-		Country = country;
 	}
-	public Consultant(String fname, String lname, int mNumber, String email, String country) {
+	public Customer(String fname, String lname, int mNumber, String email) {
 		Fname = fname;
 		Lname = lname;
 		MNumber = mNumber;
 		Email = email;
-		Country = country;
 	}
-	public int getConsultantId() {
-		return ConsultantId;
+	public int getCustomerId() {
+		return CustomerId;
 	}
-	public void setConsultantId(int consultantId) {
-		ConsultantId = consultantId;
+	public void setCustomerId(int customerId) {
+		CustomerId = customerId;
 	}
 	public String getFname() {
 		return Fname;
@@ -52,11 +50,5 @@ public class Consultant {
 	}
 	public void setEmail(String email) {
 		Email = email;
-	}
-	public String getCountry() {
-		return Country;
-	}
-	public void setCountry(String country) {
-		Country = country;
 	}
 }

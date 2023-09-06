@@ -11,15 +11,18 @@ import org.apache.catalina.connector.Request;
 
 import dao.AdminDAO;
 import entity.Admin;
+import service.AdminService;
 
 
 @WebServlet("/AdminServlet")
 public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private AdminService adminService;
        
   
     public AdminServlet() {
         super();
+        adminService = new AdminService();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -87,18 +90,18 @@ public class AdminServlet extends HttpServlet {
 	}
 
 	private void login(HttpServletRequest request, HttpServletResponse response ) throws IOException, ServletException {
-		String username = request.getParameter("username");
-        String password = request.getParameter("password");
+		String username = request.getParameter("Username");
+        String password = request.getParameter("Password");
 
-        AdminDAO adminDAO = new AdminDAO();
-        Admin admin = adminDAO.login(username, password);
-
+        Admin admin = adminService.login(username, password);
+        //System.out.println(admin.getFname());
         if (admin != null) {
             // Successful login
             request.getSession().setAttribute("loggedInAdmin", admin);
-            response.sendRedirect("dashboard.jsp"); // Redirect to dashboard or other page
+            response.sendRedirect("dash.jsp");
         } else {
             // Failed login
+        	
             request.setAttribute("errorMessage", "Invalid username or password");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }

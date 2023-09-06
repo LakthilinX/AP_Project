@@ -10,7 +10,7 @@ public class DBUtil {
 		Connection connection = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_appointment?useSSL=false","root","hy6Per@lex");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/thejobs?useSSL=false","root","hy6Per@lex");
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
