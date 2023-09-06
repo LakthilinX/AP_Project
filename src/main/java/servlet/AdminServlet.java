@@ -1,17 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.connector.Request;
-
 import dao.AdminDAO;
 import entity.Admin;
 import service.AdminService;
+import validator.Validate;
 
 
 @WebServlet("/AdminServlet")
@@ -31,23 +32,21 @@ public class AdminServlet extends HttpServlet {
         if (action != null) {
             switch (action) {
             	case "login":
-	                // Handle create operation
 	                login(request, response);
 	                break;
                 case "create":
-                    // Handle create operation
                     createAdmin(request, response);
                     break;
+                case "createView":
+                	createView(request, response);
+                    break;
                 case "update":
-                    // Handle update operation
                     updateAdmin(request, response);
                     break;
                 case "delete":
-                    // Handle delete operation
                     deleteAdmin(request, response);
                     break;
                 case "list":
-                    // Handle list operation
                     listAdmins(request, response);
                     break;
                 default:
@@ -56,9 +55,15 @@ public class AdminServlet extends HttpServlet {
         }
 	}
 	
-	private void listAdmins(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		
+	private void createView(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        request.getRequestDispatcher("NewUser.jsp").forward(request, response);
+	}
+	
+	private void listAdmins(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		List<Admin> admins = adminService.getAllAdmin();
+		request.setAttribute("admins", admins);
+        request.getRequestDispatcher("ListUser.jsp").forward(request, response);
 	}
 
 	private void deleteAdmin(HttpServletRequest request, HttpServletResponse response) {
@@ -66,7 +71,7 @@ public class AdminServlet extends HttpServlet {
 		
 	}
 
-	private void updateAdmin(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	private void updateAdmin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		int adminId = Integer.parseInt(request.getParameter("adminId"));
         String fname = request.getParameter("fname");
         String lname = request.getParameter("lname");
@@ -76,17 +81,20 @@ public class AdminServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         Admin updatedAdmin = new Admin(adminId, fname, lname, mNumber, email, username, password);
-
+        
+        Validate<Admin> validator = new Validate();
+        List<String> errors = validator.validate(updatedAdmin);
         AdminDAO adminDAO = new AdminDAO();
-        boolean success = adminDAO.updateAdmin(updatedAdmin);
-
-        if (success) {
-            response.sendRedirect("admin_list.jsp"); // Redirect to admin list page
-        } else {
-            // Handle error
-            response.getWriter().write("Failed to update admin.");
+        
+        if(!errors.isEmpty()) {
+        	request.setAttribute("errors", errors);
+            request.getRequestDispatcher("NewUser.jsp").forward(request, response);
         }
-		
+        else {
+        	boolean success = adminDAO.updateAdmin(updatedAdmin);
+        	 response.sendRedirect("admin_list.jsp");
+        }
+            response.getWriter().write("Failed to update admin.");
 	}
 
 	private void login(HttpServletRequest request, HttpServletResponse response ) throws IOException, ServletException {
@@ -109,26 +117,27 @@ public class AdminServlet extends HttpServlet {
 	
 	private void createAdmin(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Retrieve form data
-        String fname = request.getParameter("fname");
-        String lname = request.getParameter("lname");
-        int mNumber = Integer.parseInt(request.getParameter("mNumber"));
+        String fname = request.getParameter("Fname");
+        String lname = request.getParameter("Lname");
+        int mNumber = Integer.parseInt(request.getParameter("MNumber"));
         String email = request.getParameter("email");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = request.getParameter("UserName");
+        String password = request.getParameter("Password");
 
-        // Create Admin object
         Admin newAdmin = new Admin(fname, lname, mNumber, email, username, password);
-
-        // Insert into database
+        
+        Validate<Admin> validator = new Validate();
+        List<String> errors = validator.validate(newAdmin);
+        
         AdminDAO adminDAO = new AdminDAO();
-        boolean success = adminDAO.insertAdmin(newAdmin);
-
-        if (success) {
-            response.sendRedirect("admin_list.jsp"); // Redirect to admin list page
-        } else {
-            // Handle error
-            response.getWriter().write("Failed to create admin.");
+        
+        if(!errors.isEmpty()) {
+        	request.setAttribute("errors", errors);
+            request.getRequestDispatcher("NewUser.jsp").forward(request, response);
+        }
+        else {
+        	adminDAO.insertAdmin(newAdmin);
+            response.sendRedirect("AdminServlet?action=list");
         }
     }
 

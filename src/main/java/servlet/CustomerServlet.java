@@ -7,8 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import entity.Admin;
 import entity.Customer;
 import service.CustomerService;
+import validator.Validate;
 
 @WebServlet("/CustomerServlet")
 public class CustomerServlet extends HttpServlet {
@@ -67,9 +70,18 @@ public class CustomerServlet extends HttpServlet {
         String email = request.getParameter("email");
 
         Customer newCustomer = new Customer(fname, lname, mNumber, email);
-        customerService.createCustomer(newCustomer);
-
-        response.sendRedirect("CustomerServlet?action=list");
+        
+        Validate<Customer> validator = new Validate();
+        List<String> errors = validator.validate(newCustomer);
+        
+        if(!errors.isEmpty()) {
+        	request.setAttribute("errors", errors);
+            request.getRequestDispatcher("NewCustomer.jsp").forward(request, response);
+        }
+        else {
+        	customerService.createCustomer(newCustomer);
+            response.sendRedirect("CustomerServlet?action=list");
+        }
     }
     
     private void listCustomers(HttpServletRequest request, HttpServletResponse response)

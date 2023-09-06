@@ -9,6 +9,7 @@ public class Admin {
 	private String Email;
 	private String username;
 	private String Password;
+	
 	public Admin(int adminId, String fname, String lname, int mNumber, String email, String username, String password) {
 		AdminId = adminId;
 		Fname = fname;

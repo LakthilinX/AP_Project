@@ -16,9 +16,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -82,19 +80,14 @@
           </div>
           <div class="col-lg-8">
             <div class="content ps-lg-5">
-              <h3>Voluptatem dignissimos provident quasi</h3>
+              <h3>Why you have to Choose us ? </h3>
               <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                We, The Jobs, are the leading consulting company in the country for jobs abroad. We offer you free consulting for your jobs, step by step.
               </p>
               <ul>
-                <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </li>
-                <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate velit.
-                </li>
-                <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </li>
+                <li><i class="bi bi-check-circle-fill"></i> 24/7 Service</li>
+                <li><i class="bi bi-check-circle-fill"></i> 100% Customer satisfaction ratio</li>
+                <li><i class="bi bi-check-circle-fill"></i> 100% Job guarantee</li>
               </ul>
             </div>
           </div>
@@ -102,91 +95,6 @@
 
       </div>
     </section><!-- End About Section -->
-
-    <!-- ======= Why Choose Us Section ======= -->
-    <section id="why-us" class="why-us">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Why Choose Us</h2>
-
-        </div>
-
-        <div class="row g-0" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-xl-5 img-bg" style="background-image: url('assets/img/why-us-bg.jpg')"></div>
-          <div class="col-xl-7 slides  position-relative">
-
-            <div class="slides-1 swiper">
-              <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Let's grow your business together</h3>
-                    <h4 class="mb-3">Optio reiciendis accusantium iusto architecto at quia minima maiores quidem,
-                      dolorum.</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ipsam perferendis
-                      asperiores explicabo vel tempore velit totam, natus nesciunt accusantium dicta quod quibusdam
-                      ipsum maiores nobis non, eum. Ullam reiciendis dignissimos laborum aut, magni voluptatem velit
-                      doloribus quas sapiente optio.</p>
-                  </div>
-                </div><!-- End slide item -->
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Unde perspiciatis ut repellat dolorem</h3>
-                    <h4 class="mb-3">Amet cumque nam sed voluptas doloribus iusto. Dolorem eos aliquam quis.</h4>
-                    <p>Dolorem quia fuga consectetur voluptatem. Earum consequatur nulla maxime necessitatibus cum
-                      accusamus. Voluptatem dolorem ut numquam dolorum delectus autem veritatis facilis. Et ea ut
-                      repellat ea. Facere est dolores fugiat dolor.</p>
-                  </div>
-                </div><!-- End slide item -->
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Aliquid non alias minus</h3>
-                    <h4 class="mb-3">Necessitatibus voluptatibus explicabo dolores a vitae voluptatum.</h4>
-                    <p>Neque voluptates aut. Soluta aut perspiciatis porro deserunt. Voluptate ut itaque velit. Aut
-                      consectetur voluptatem aspernatur sequi sit laborum. Voluptas enim dolorum fugiat aut.</p>
-                  </div>
-                </div><!-- End slide item -->
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Necessitatibus suscipit non voluptatem quibusdam</h3>
-                    <h4 class="mb-3">Tempora quos est ut quia adipisci ut voluptas. Deleniti laborum soluta nihil est.
-                      Eum similique neque autem ut.</h4>
-                    <p>Ut rerum et autem vel. Et rerum molestiae aut sit vel incidunt sit at voluptatem. Saepe dolorem
-                      et sed voluptate impedit. Ad et qui sint at qui animi animi rerum.</p>
-                  </div>
-                </div><!-- End slide item -->
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Why Choose Us Section -->
-
-    <!-- ======= Call To Action Section ======= -->
-    <section id="call-to-action" class="call-to-action">
-      <div class="container" data-aos="fade-up">
-        <div class="row justify-content-center">
-          <div class="col-lg-6 text-center">
-            <h3>Ut fugiat aliquam aut non</h3>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident.</p>
-            <a class="cta-btn" href="#">Call To Action</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Call To Action Section -->
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team">
@@ -266,7 +174,7 @@
               </div>
               <div class="member-info">
                 <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
+                <span>Reception</span>
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -277,7 +185,6 @@
     </section><!-- End Team Section -->
 
   </main><!-- End #main -->
-
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
@@ -286,10 +193,9 @@
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
             <a href="index.html" class="logo d-flex align-items-center">
-              <span>Nova</span>
+              <span>The Jobs</span>
             </a>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies
-              darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <p>We, The Jobs, are the leading consulting company in the country for jobs abroad. We offer you free consulting for your jobs, step by step.</p>
             <div class="social-links d-flex  mt-3">
               <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
               <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -304,30 +210,19 @@
               <li><i class="bi bi-dash"></i> <a href="#">Home</a></li>
               <li><i class="bi bi-dash"></i> <a href="#">About us</a></li>
               <li><i class="bi bi-dash"></i> <a href="#">Services</a></li>
-              <li><i class="bi bi-dash"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bi bi-dash"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bi bi-dash"></i> <a href="#">Web Design</a></li>
-              <li><i class="bi bi-dash"></i> <a href="#">Web Development</a></li>
-              <li><i class="bi bi-dash"></i> <a href="#">Product Management</a></li>
-              <li><i class="bi bi-dash"></i> <a href="#">Marketing</a></li>
-              <li><i class="bi bi-dash"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Login</a></li>
+            
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
             <h4>Contact Us</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              No. 25/2 <br>
+              Main street, Colombo 10<br>
+              Sri lanka <br><br>
+              <strong>Phone:</strong> +94 716538943<br>
+              <strong>Email:</strong> info@thejobs.com<br>
             </p>
 
           </div>
@@ -339,21 +234,14 @@
     <div class="footer-legal">
       <div class="container">
         <div class="copyright">
-          &copy; Copyright <strong><span>Nova</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>The Jobs</span></strong>. All Rights Reserved
         </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nova-bootstrap-business-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
       </div>
     </div>
   </footer><!-- End Footer --><!-- End Footer -->
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
 

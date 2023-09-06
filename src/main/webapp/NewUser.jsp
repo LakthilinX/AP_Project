@@ -122,7 +122,6 @@
                                     </ul>
                                 </div>
                             </li>
-
                             <li>
                                 <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts1">
                                     <span class="me-2"><i class="bi bi-layout-split"></i></span>
@@ -153,9 +152,7 @@
                                         </li>
                                     </ul>
                                 </div>
-
                             </li>
-
                             <li>
                                 <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts2">
                                     <span class="me-2"><i class="bi bi-layout-split"></i></span>
@@ -186,7 +183,6 @@
                                         </li>
                                     </ul>
                                 </div>
-
                             </li>
                             <li>
                                 <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts3">
@@ -208,7 +204,6 @@
                                         </li>
                                     </ul>
                                 </div>
-
                                 <div class="collapse" id="layouts3">
                                     <ul class="navbar-nav ps-3">
                                         <li>
@@ -219,7 +214,6 @@
                                         </li>
                                     </ul>
                                 </div>
-
                             </li>
                             <li class="my-4">
                                 <hr class="dropdown-divider bg-light" />
@@ -251,7 +245,7 @@
                     <div class="row">
                         <h2>Add New User</h2>
                     </div>
-                    <form action="" method="post">
+                    <form action="<%=request.getContextPath()%>/AdminServlet?action=create" method="post">
                         <div class="row mt-5">
                             <div class="col-md-6">
                                 <label for="inputMnumber" class="form-label">First Name</label>
@@ -287,6 +281,15 @@
                                 <input type="submit" value="Submit" class="btn btn-success">
                             </div>
                         </div>
+                         <div class="row mt-5">
+                        <div class="col-6">
+	                		<ul class="error text text-danger">
+		                <c:forEach var="error" items="${errors1}">
+		                	<li>${error}</li>
+		                </c:forEach>
+	                	</ul>
+	                	</div>
+                </div>
                     </form>
                 </div>
             </main>

@@ -249,12 +249,12 @@
             <main class="mt-5 pt-3">
                 <div class="container-fluid">
                     <div class="row">
-                        <h2>Consultant List</h2>
+                        <h2>User List</h2>
                     </div>
                     <div class="row mt-5 justify-content-center">
-                        <div class="col-md-6">
+                        <div class="col-md-10">
                             <table class="table table-dark">
-                                <th>
+                                <tr>
                                 <td>User ID</td>
                                 <td>First Name</td>
                                 <td>Last Name</td>
@@ -263,18 +263,24 @@
                                 <td>User Name</td>
                                 <td>Password</td>
                                 <td>Action</td>
-                                </th>
-                                <tr>
-                                    <td></td>
-                                    <td>1</td>
-                                    <td>Dilan</td>
-                                    <td>2023-08-30</td>
-                                    <td>Developer</td>
-                                    <td>Developer</td>
-                                    <td>Developer</td>
-                                    <td>Developer</td>
-                                    <td>Developer</td>
                                 </tr>
+                                <c:forEach var="admin" items="${admins}">
+                                <tr>
+                                    <td><c:out value="${admin.getAdminId()}" /></td>
+                                    <td><c:out value="${admin.getFname()}" /></td>
+                                    <td><c:out value="${admin.getLname()}" /></td>
+                                    <td><c:out value="${admin.getMNumber()}" /></td>
+                                    <td><c:out value="${admin.getEmail()}" /></td>
+                                    <td><c:out value="${admin.getUsername()}" /></td>
+                                    <td><c:out value="${admin.getPassword()}" /></td>
+                                    <td>
+                                    <a class="btn btn-primary"
+                                                href="UsersServlet?action=updateFrm&id=<c:out value='${admin.getAdminId()}' />">Edit</a>
+                                        <a class="btn btn-danger"
+                                                href="DeleteUserServlet?id=<c:out value='${admin.getAdminId()}' />">Delete</a>
+                                    </td>
+                                </tr>
+                                </c:forEach>
                             </table>
                         </div>
                     </div>

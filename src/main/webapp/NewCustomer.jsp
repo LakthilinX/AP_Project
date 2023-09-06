@@ -273,6 +273,15 @@
                             </div>
                         </div>
                         <div class="row mt-5">
+                        <div class="col-6">
+	                		<ul class="error text text-danger">
+		                <c:forEach var="error" items="${errors1}">
+		                	<li>${error}</li>
+		                </c:forEach>
+	                	</ul>
+	                	</div>
+                		</div>
+                        <div class="row mt-5">
                             <div class="col">
                                 <input type="submit" value="Submit" class="btn btn-success">
                             </div>

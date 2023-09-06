@@ -11,7 +11,6 @@ import entity.Admin;
 
 
 public class AdminDAO {
-	// Insert a new admin record
     public boolean insertAdmin(Admin admin) {
         String sql = "INSERT INTO admin (Fname, Lname, MNumber, Email, username, Password) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = DBUtil.getConnection();
@@ -31,7 +30,7 @@ public class AdminDAO {
         }
     }
 
-    // Update an existing admin record
+
     public boolean updateAdmin(Admin admin) {
         String sql = "UPDATE admin SET Fname = ?, Lname = ?, MNumber = ?, Email = ?, username = ?, Password = ? WHERE AdminId = ?";
         try (Connection connection = DBUtil.getConnection();
@@ -52,7 +51,7 @@ public class AdminDAO {
         }
     }
 
-    // Delete an admin record by ID
+
     public boolean deleteAdmin(int adminId) {
         String sql = "DELETE FROM admin WHERE AdminId = ?";
         try (Connection connection = DBUtil.getConnection();
@@ -67,7 +66,7 @@ public class AdminDAO {
         }
     }
 
-    // Retrieve a list of all admin records
+
     public List<Admin> getAllAdmins() {
         List<Admin> adminList = new ArrayList<>();
         String sql = "SELECT * FROM admin";
@@ -93,7 +92,7 @@ public class AdminDAO {
         return adminList;
     }
 
-    // Retrieve an admin record by ID
+
     public Admin getAdminById(int adminId) {
         String sql = "SELECT * FROM admin WHERE AdminId = ?";
         try (Connection connection = DBUtil.getConnection();

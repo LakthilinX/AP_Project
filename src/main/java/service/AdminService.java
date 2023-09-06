@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import dao.AdminDAO;
 import entity.Admin;
 
@@ -24,6 +26,11 @@ public class AdminService {
     public Admin login(String username, String password) {
         return adminDAO.login(username, password);
     }
+    
+    public List<Admin> getAllAdmin() {
+    	
+		return adminDAO.getAllAdmins();
+	}
 }
 
     
