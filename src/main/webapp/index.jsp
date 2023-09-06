@@ -147,7 +147,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Australia</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="cons.html" class="btn btn-primary">Select</a>
+                  <a href="<%=request.getContextPath()%>/IndexServlet?action=loadConsalt&country=Australia" class="btn btn-primary">Select</a>
                 </div>
               </div>
           </div>

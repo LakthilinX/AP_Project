@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,46 +90,46 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Make an Appoinment</h2>
+          <h2>Make an Appoinment</h2> 
 
         </div>
 
         <div class="row gy-5">
-          <form class="row g-3">
+          <form action="IndexServlet?action=createCustomerIndex" method="Post" class="row g-3">
+          	<div class="col-md-6">
+              <label for="inputFname" class="form-label">Consultent Id</label>
+              <input type="text" class="form-control" id="ConsultentID" name="conName" disabled  value="<c:out value='${name}' />">
+              <input type="text" class="form-control" id="ConsultentID" name="ConsultentID" hidden  value="<c:out value='${ConsID}' />">
+            </div>
+            <div class="col-md-6">
+              <label for="inputLname" class="form-label">Country</label>
+              <input type="text" class="form-control" name="Country" disabled value="<c:out value='${Country}' />">
+            </div>
             <div class="col-md-6">
               <label for="inputFname" class="form-label">First Name</label>
-              <input type="text" class="form-control" id="inputFname">
+              <input type="text" class="form-control" name="inputFname">
             </div>
             <div class="col-md-6">
               <label for="inputLname" class="form-label">Last Name</label>
-              <input type="text" class="form-control" id="inputLname">
+              <input type="text" class="form-control" name="inputLname">
             </div>
             <div class="col-md-6">
               <label for="inputMnumber" class="form-label">Mobile Number</label>
-              <input type="text" class="form-control" id="inputMnumber">
+              <input type="text" class="form-control" name="inputMnumber">
             </div>
             <div class="col-md-6">
               <label for="inputEmail" class="form-label">E-Mail</label>
-              <input type="text" class="form-control" id="inputEmail">
+              <input type="email" class="form-control" name="inputEmail">
             </div>
-            <div class="col-md-4">
-              <label for="inputState" class="form-label">Job Type</label>
-              <select id="inputState" class="form-select">
-                <option selected>Choose...</option>
-                <option>...</option>
-                <option>...</option>
-                <option>...</option>
-                <option>...</option>
-              </select>
+            <div class="col-md-6">
+              <label for="inputState" class="form-label">Job</label>
+              <input type="text" class="form-control" name="jtype">
             </div>
-            <div class="col-12">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
-              </div>
+            <div class="col-md-6">
+              <label for="inputState" class="form-label">Date</label>
+              <input type="date" class="form-control" name="date">
             </div>
+            
             <div class="col-12">
               <button type="submit" class="btn btn-primary">Make a Appoinment</button>
             </div>

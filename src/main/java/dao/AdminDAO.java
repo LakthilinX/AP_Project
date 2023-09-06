@@ -120,6 +120,7 @@ public class AdminDAO {
     }
     
     public Admin login(String Uname , String pass) {
+    	System.out.println(Uname + pass);
         String sql = "SELECT * FROM admin WHERE username=? AND PASSWORD =?";
         try (Connection connection = DBUtil.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {

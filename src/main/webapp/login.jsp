@@ -71,6 +71,10 @@
     </div><!-- End Breadcrumbs -->
 
     <body>
+    <%
+        // Invalidate the user's session to log them out
+        session.invalidate();
+    %>
         <section>
           <div class="container mt-5 pt-5">
             <div class="row">
@@ -78,9 +82,9 @@
                 <div class="card border-0 shadow">
                   <div class="card-body">
                     <h5 class="card-title">Admin</h5>
-                    <form action="" method="Post">
+                    <form action="<%=request.getContextPath()%>/AdminServlet?action=login" method="Post">
                       <input type="text" name="Username" id="" class="form-control my-4 py-2" placeholder="Username" />
-                      <input type="text" name="Password" id="" class="form-control my-4 py-2" placeholder="Password" />
+                      <input type="password" name="Password" id="" class="form-control my-4 py-2" placeholder="Password" />
                       <div class="text-center mt-3">
                       
                       	<input class="btn btn-primary" type="submit" value="Login" />
@@ -96,7 +100,6 @@
             </div>
           </div>
         </section>
-    
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
       </body>
